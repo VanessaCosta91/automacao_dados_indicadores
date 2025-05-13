@@ -10,4 +10,4 @@ Este projeto desenvolve e automatiza KPIs operacionais e estratégicos de uma ba
 - Percentual de devoluções e cancelamentos
 - Volume de pedidos por mês
 
-Para mais detalhes sobre os indicadores, veja [documentacao_projeto.md](./documentacao_projeto.md).
+Para mais detalhes sobre os indicadores, veja [documentacao_projeto](./documentacao_projeto.md).
