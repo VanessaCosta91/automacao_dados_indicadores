@@ -10,4 +10,21 @@ Este projeto desenvolve e automatiza KPIs operacionais e estratégicos de uma ba
 - Percentual de devoluções e cancelamentos
 - Volume de pedidos por mês
 
-Para mais detalhes sobre os indicadores, veja [documentacao_projeto](./documentacao_projeto.md).
+
+
+## Agregações e cálculos em Python
+
+- Conversão de consultas SQL para DataFrame
+- Cálculos Complementares: Crescimento percentual mês a mês e Média móvel de 3 meses
+- Exportação dos Resultados para `.csv`
+
+
+
+Para mais detalhes sobre a documentação, veja [documentacao_projeto](./documentacao_projeto.md).
+
+
+
+
+
+
+Projeto em andamento

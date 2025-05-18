@@ -65,8 +65,60 @@
   * Tabela: `order_items`
   * Coluna: `status`
 
----
+
 
 ### Observação:
 
 Todos os indicadores acima foram extraídos da base pública **bigquery-public-data.thelook_ecommerce**, disponível no Google BigQuery. O campo `status` foi usado para filtrar apenas pedidos finalizados ou enviados, quando necessário.
+
+---
+
+## 2. Agregações e cálculos em Python
+
+Após a extração dos dados via SQL no Google BigQuery, as consultas foram convertidas em DataFrames no Python para facilitar o tratamento e análise dos indicadores.
+
+### Conversão de consultas SQL para DataFrame
+Cada KPI foi consultado diretamente no BigQuery utilizando a biblioteca `google.cloud.bigquery`, com autenticação por chave de serviço (JSON). Os resultados das queries foram transformados em DataFrame para posterior manipulação.
+
+```
+df = client.query(query).to_dataframe()
+```
+
+### Cálculos Complementares
+Foram adicionados dois cálculos estatísticos:
+
+* **Crescimento percentual mês a mês** 
+Mede a variação percentual entre o mês atual e o anterior
+
+```
+#Exemplo
+df['crescimento_pct'] = df['Tempo_medio_dias'].pct_change() * 100
+```
+
+* **Média móvel de 3 meses**
+Atenua o efeito de variações atípicas  e facilita a visualização de tendências no tempo.
+
+```
+#Exempo
+df['media_movel_3m'] = df['Tempo_medio_dias'].rolling(window=3).mean().round(2)
+```
+
+### Exportação dos Resultados
+
+Os dados tratados foram exportados em formato .csv com codificação UTF-8 e separador ;, a fim de garantir a visualização no PowerBI.
+
+```
+df.to_csv('arquivo.csv', index=False, sep=';', encoding='utf-8-sig')
+```
+
+---
+
+## 3. Dasboard
+
+
+
+
+
+
+
+
