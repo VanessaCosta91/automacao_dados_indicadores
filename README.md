@@ -82,7 +82,7 @@ python run_pipeline.py
 ## Dashboard
 
 O dashboard criado no Power BI consome os arquivos `.csv` exportados e apresenta os KPIs com filtros mensais.  
-A visualização está disponível na pasta `/dashboard` (print e PDF).
+A visualização está disponível na pasta [dashboard](./dashboard) (print, .pbix e PDF).
 
 ---
 
