@@ -50,7 +50,7 @@
 ### **Percentual de pedidos cancelados**
 
 * **Descrição**: porcentagem de pedidos cancelados em relação ao total. Pode indicar falhas operacionais ou problemas de produto.
-* **Fórmula**: `(COUNTIF(status = 'Cancelled') / COUNT(*)) * 100`
+* **Fórmula**: `ROUND(COUNTIF(status = 'Cancelled') / COUNT(*),2)` agrupado por mês (`FORMAT_DATE('%Y-%m', created_at)`)
 * **Fonte dos dados**:
   * Tabela: `order_items`
   * Coluna: `status`
@@ -60,7 +60,7 @@
 ### **Percentual de pedidos devolvidos**
 
 * **Descrição**: porcentagem de pedidos devolvidos. Pode indicar insatisfação com produto ou serviço.
-* **Fórmula**: `(COUNTIF(status = 'Returned') / COUNT(*)) * 100`
+* **Fórmula**: `ROUND(COUNTIF(status = "Returned") / COUNT(*),2)` agrupado por mês (`FORMAT_DATE('%Y-%m', created_at)`)
 * **Fonte dos dados**:
   * Tabela: `order_items`
   * Coluna: `status`
@@ -113,8 +113,60 @@ df.to_csv('arquivo.csv', index=False, sep=';', encoding='utf-8-sig')
 
 ---
 
-## 3. Dasboard
+## 3. Dashboard
 
+Desenvolvido no Power BI, utilizando os arquivos `.csv` gerados. Visualiza: vendas, pedidos, ticket médio, cancelamentos e devoluções.
+
+---
+
+## 4. Automação da Pipeline
+
+- Script Python (`run_pipeline.py`)
+- Arquivo BAT (`executar_pipeline.bat`)
+- Agendador de Tarefas (Windows)
+- Geração de `pipeline.log`
+
+---
+
+## 5. Estrutura de Arquivos
+
+| Arquivo | Descrição |
+|---------|----------|
+| `pipeline.py` | ETL |
+| `run_pipeline.py` | Automação |
+| `manage_pipeline.py` | Alternativa |
+| `requirements.txt` | Dependências |
+| `executar_pipeline.bat` | Execução no Windows |
+| `chave_bigquery.json` | Autenticação |
+| `pipeline.log` | Log |
+| `dashboard/` | Arquivos gráficos |
+
+---
+
+## 6. Instalação e Execução
+
+1. Clonar o repositório  
+2. Criar e ativar o ambiente virtual  
+3. Instalar dependências  
+4. Configurar chave  
+5. Executar pipeline
+
+---
+
+## 7. Logs e Monitoramento
+
+Registro em `pipeline.log` com erros e sucessos.
+
+---
+
+## 8. Conclusão
+
+Automação completa de indicadores de e-commerce, integrando SQL, Python e BI.
+
+---
+
+
+Desenvolvido por Vanessa Costa — Portfólio em Análise de Dados.
 
 
 
