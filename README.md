@@ -101,4 +101,5 @@ Para mais detalhes técnicos, consulte [documentacao_projeto.md](./documentacao_
 
 ---
 
-**Projeto em andamento**
+
+Desenvolvido por Vanessa Costa — Portfólio em Análise de Dados.
